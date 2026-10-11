@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "minVersion": "0.8.5",
+  "package": "com.dsh.channelcompat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "MixinHandshakeHandler",
+    "MixinC2SModListReply"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

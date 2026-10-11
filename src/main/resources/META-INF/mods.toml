@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="channelcompat"
+version="1.0.0"
+displayName="ChannelCompat（联机不再被模组通道拒绝）"
+authors="DSH"
+description='''
+让 Forge 客户端像 Fabric 一样处理模组网络通道：
+
+客户端装了服务端没有的模组时，Forge 会以
+"Connection closed - mismatched mod channel list" 拒绝进入；
+本模组改为：握手时只向服务端宣告「双方都有且版本一致」的通道，
+客户端也不再因多余通道自我断开。多余的模组只是不生效。
+
+纯客户端模组，服务端无需安装。
+'''
+displayTest="IGNORE_ALL_VERSION"
+
+[[dependencies.channelcompat]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.channelcompat]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.20.2)"
+    ordering="NONE"
+    side="CLIENT"
