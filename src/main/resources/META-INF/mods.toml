@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="channelcompat"
-version="1.0.0"
+version="1.0.0-alpha"
 displayName="ChannelCompat（联机不再被模组通道拒绝）"
 authors="DSH"
 description='''

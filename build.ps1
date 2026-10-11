@@ -1,4 +1,4 @@
-<#
+﻿<#
   ChannelCompat 构建脚本
   用法:
     .\build.ps1                                    # 自动找 %APPDATA%\.minecraft
@@ -38,15 +38,15 @@ $srcs = Get-ChildItem -LiteralPath (Join-Path $root 'src\main\java') -Recurse -F
 & javac --release 17 -nowarn -cp "$mixin;$forge;$javafml;$slf4j" -d $cls $srcs
 if ($LASTEXITCODE -ne 0) { throw '编译失败' }
 
-Copy-Item -LiteralPath (Join-Path $root 'src\main\resources\*') -Destination $cls -Recurse -Force
+Copy-Item -Path (Join-Path $root 'src\main\resources\*') -Destination $cls -Recurse -Force
 $mf = Join-Path $out 'MANIFEST.MF'
 @"
 Manifest-Version: 1.0
 MixinConfigs: channelcompat.mixins.json
 Implementation-Title: ChannelCompat
-Implementation-Version: 1.0.0
+Implementation-Version: 1.0.0-alpha
 "@ | Set-Content -LiteralPath $mf -Encoding ascii
 
-$jarPath = Join-Path $out 'channelcompat-1.0.0.jar'
+$jarPath = Join-Path $out 'channelcompat-1.0.0-alpha.jar'
 & jar --create --file $jarPath --manifest $mf -C $cls .
 Write-Host "构建完成: $jarPath" -ForegroundColor Green
